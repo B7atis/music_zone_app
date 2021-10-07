@@ -3,35 +3,45 @@ import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+
+import { GiMusicSpell } from 'react-icons/gi';
 
 import styles from './Header.module.scss';
 
-const Component = ({ className, children }) => (
+const Component = ({ className }) => (
   <div className={clsx(className, styles.root)}>
-    <h2>Header</h2>
-    {children}
+    <AppBar position="static">
+      <Toolbar className={styles.toolbar}>
+        <Button className={styles.title} href="/">
+          <GiMusicSpell className={styles.icon} />
+          <h1><span>Music</span>Zone</h1>
+        </Button>
+        <div className={styles.menu}>
+          <Button href="/" color="inherit">Home</Button>
+          <Button color="inherit">Contact</Button>
+          <div className={styles.cart}>
+            <Button>
+              <ShoppingBasketIcon size="large" />
+              <div className={styles.cartContent}>
+                2
+              </div>
+            </Button>
+          </div>
+        </div>
+      </Toolbar>
+    </AppBar>
   </div>
 );
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as Header,
-  // Container as Header,
   Component as HeaderComponent,
 };
