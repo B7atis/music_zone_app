@@ -1,5 +1,3 @@
-# Description
-
 Final project in the Kodilla course.
 
 # Getting Started with Create React App
