@@ -1,26 +1,88 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  margin-top: 180px;
-  padding-top: 15px;
-  font-weight: bold;
-  color: $font-blue;
-  background: $background-gradient;
+  .container {
+    padding: 30px;
+    background: $background-main;
+    margin: auto;
+  }
 
-  .foot {
+  .row {
     display: flex;
-    height: 70px;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+  }
 
-    .media {
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    li a {
+      font-size: 16px;
+      text-transform: capitalize;
+      color: $font-light;
+      text-decoration: none;
+      font-weight: 300;
+      color: $font-footer;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    li a:hover {
+      color: $font-light;
+      padding-left: 8px;
+    }
+  }
+
+  .col {
+    width: 350px;
+    padding: 0 100px;
+
+    h4 {
+      font-size: 18px;
+      color: $font-light;
+      text-transform: capitalize;
+      margin-bottom: 35px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    h4::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      background-color: $font-logo;
+      height: 2px;
+      box-sizing: border-box;
+      width: 50px;
+    }
+
+    .social {
       a {
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        background-color: $background-social;
+        margin: 0 10px 10px 0;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
         color: $font-light;
-        margin: 10px;
+        transition: all 0.5s ease;
+      }
 
-        &:hover {
-          color: $font-blue;
-        }
+      a:hover {
+        color: $font-hover-social;
+        background-color: $font-light;
+      }
+
+      .icon {
+        margin-top: 7px;
       }
     }
   }

@@ -3,8 +3,7 @@
 .root {
   .toolbar {
     justify-content: space-around;
-    background: $background-gradient;
-    background-blend-mode: multiply, multiply;
+    background: $background-main;
 
     .icon {
       font-size: 70px;
@@ -18,7 +17,7 @@
     }
 
     .title span {
-      color: $font-blue;
+      color: $font-logo;
     }
 
     .title:hover {
