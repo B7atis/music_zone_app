@@ -1,35 +1,25 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin-top: 35px;
+  margin-top: 180px;
   padding-top: 15px;
   font-weight: bold;
   color: $font-blue;
   background: $background-gradient;
-  text-transform: uppercase;
 
   .foot {
     display: flex;
+    height: 70px;
     justify-content: center;
+    align-items: center;
 
     .media {
-      ul {
-        display: flex;
-        padding: 5px;
-        margin: 25px;
-        list-style: none;
+      a {
+        color: $font-light;
+        margin: 10px;
 
-        a {
-          color: $font-light;
-          margin: 5px;
-
-          &:hover {
-            color: $font-blue;
-          }
+        &:hover {
+          color: $font-blue;
         }
       }
     }
