@@ -103,7 +103,6 @@ const Component = ({ className }) => (
         </form>
       </CardContent>
     </Card>
-
   </div>
 );
 

@@ -1,0 +1,49 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  .cartButton {
+    margin: 10px;
+
+    .cartContent {
+      padding: 5px 10px;
+      margin-left: 5px;
+      border-radius: 5px;
+      background: $background-light;
+    }
+  }
+  .cartOpen {
+    position: absolute;
+    height: 100%;
+    right: 330px;
+
+    .cartItems {
+      margin: 0 50px;
+      color: $font-dark;
+      box-shadow: 0px 2px 10px 0px $background-cart-shadow;
+      background-color: $background-cart;
+    }
+  }
+
+  .show {
+    position: absolute;
+    left: 50px;
+    background-color: $font-logo;
+    color: $font-light;
+  }
+
+  @media (max-width: 1400px) {
+    .cartOpen {
+      position: absolute;
+      height: 100%;
+      right: 190px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .cartOpen {
+      position: absolute;
+      height: 100%;
+      right: 120px;
+    }
+  }
+}

@@ -42,4 +42,20 @@ export const initialState = {
       error: false,
     },
   },
+  cart: [
+    {
+      id: '1',
+      title: 'saxophone',
+      price: 3500,
+      image: 'https://cdn.pixabay.com/photo/2021/09/01/14/20/saxophone-6591475_960_720.jpg',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eleifend quam adipiscing vitae proin sagittis nisl. Sed augue lacus viverra vitae congue eu. Et tortor at risus viverra adipiscing at in. Nibh ipsum consequat nisl vel pretium lectus.',
+    },
+    {
+      id: '4',
+      title: 'trumpet',
+      price: 1600,
+      image: 'https://cdn.pixabay.com/photo/2017/09/05/12/29/trumpet-2717460_960_720.jpg',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eleifend quam adipiscing vitae proin sagittis nisl. Sed augue lacus viverra vitae congue eu. Et tortor at risus viverra adipiscing at in. Nibh ipsum consequat nisl vel pretium lectus.',
+    },
+  ],
 };
