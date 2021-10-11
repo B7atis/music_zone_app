@@ -5,6 +5,8 @@ import clsx from 'clsx';
 
 import { connect } from 'react-redux';
 import { getProductById } from '../../../redux/productRedux';
+import { addToCart } from '../../../redux/cartRedux';
+
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -18,49 +20,69 @@ import Grid from '@material-ui/core/Grid';
 import styles from './ProductPage.module.scss';
 
 
-const Component = ({ className, product }) => (
-  <div className={clsx(className, styles.root)}>
+const Component = ({ className, product, addToCart }) => {
+  const [value, setValue] = React.useState(1);
+  const onChange = ({ target }) => {
+    setValue(parseInt(target.value));
+  };
+  const {
+    content, image, title, price,
+  } = product;
 
-    <Paper className={styles.component} elevation={9}>
-      <Grid container spacing={3} alignContent="center" justify="center">
-        <Grid item xs={12} sm={5}>
-          <div className={styles.photoWrapper}>
-            <img src={product.image} alt="alternative" />
-          </div>
-          <CardActions className={styles.actions}>
-            <IconButton aria-label="add to favorites">
-              <FavoriteIcon className={styles.favorite} />
-            </IconButton>
-            <IconButton aria-label="share">
-              <ShareIcon className={styles.share} />
-            </IconButton>
-            <Button className={styles.button} color="primary" variant="contained">Add to cart</Button>
-          </CardActions>
-        </Grid>
-        <Grid item xs={12} sm={7}>
-          <Card className={styles.card}>
-            <CardContent className={styles.content}>
-              <div className={styles.title}>
-                {product.title}
-              </div>
-              <div className={styles.text}>
-                {product.content}
-              </div>
+  return (
+    <div className={clsx(className, styles.root)}>
 
-              <div className={styles.price}>
-                $
-                {product.price}
-              </div>
-            </CardContent>
-          </Card>
+      <Paper className={styles.component} elevation={9}>
+        <Grid container spacing={3} alignContent="center" justify="center">
+          <Grid item xs={12} sm={5}>
+            <div className={styles.photoWrapper}>
+              <img src={product.image} alt="alternative" />
+            </div>
+            <CardActions className={styles.actions}>
+              <IconButton aria-label="add to favorites">
+                <FavoriteIcon className={styles.favorite} />
+              </IconButton>
+              <IconButton aria-label="share">
+                <ShareIcon className={styles.share} />
+              </IconButton>
+              <Button
+                className={styles.button}
+                color="primary"
+                variant="contained"
+                onClick={() => addToCart({
+                  title, price, image, value,
+                })}
+              >
+                Add to cart</Button>
+            </CardActions>
+          </Grid>
+          <Grid item xs={12} sm={7}>
+            <Card className={styles.card}>
+              <CardContent className={styles.content}>
+                <div className={styles.title}>
+                  {title}
+                </div>
+                <div className={styles.text}>
+                  {content}
+                </div>
+
+                <input type="number" min="1" max="10" value={value} onChange={onChange} />
+                <div className={styles.price}>
+                  $
+                  {price}
+                </div>
+              </CardContent>
+            </Card>
+          </Grid>
         </Grid>
-      </Grid>
-    </Paper>
-  </div>
-);
+      </Paper>
+    </div>
+  );
+};
 
 Component.propTypes = {
   className: PropTypes.string,
+  addToCart: PropTypes.func,
   product: PropTypes.shape({
     image: PropTypes.string,
     title: PropTypes.string,
@@ -73,11 +95,15 @@ const mapStateToProps = (state, props) => ({
   product: getProductById(state, props.match.params.id),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = (dispatch) => ({
+  addToCart: ({
+    title, price, image, value,
+  }) => dispatch(addToCart({
+    title, price, image, value,
+  })),
+});
 
-const Container = connect(mapStateToProps)(Component);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   // Component as ProductPage,
