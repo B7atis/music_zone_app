@@ -3,8 +3,8 @@
 .root {
   .container {
     padding: 30px;
-    background: $background-main;
     margin: auto;
+    background: $background-main;
   }
 
   .row {
@@ -14,52 +14,52 @@
   }
 
   ul {
-    list-style: none;
     padding: 0;
+    list-style: none;
 
     li:not(:last-child) {
       margin-bottom: 10px;
     }
 
     li a {
-      font-size: 16px;
-      text-transform: capitalize;
-      color: $font-light;
-      text-decoration: none;
-      font-weight: 300;
-      color: $font-footer;
       display: block;
+      font-weight: 300;
+      font-size: 14px;
+      color: $font-footer;
+      text-decoration: none;
+      text-transform: capitalize;
       transition: all 0.3s ease;
     }
 
     li a:hover {
-      color: $font-light;
       padding-left: 8px;
+      color: $font-light;
     }
   }
 
   .col {
-    width: 350px;
-    padding: 0 100px;
+    padding: 0 50px;
+    margin-left: 20px;
+    width: 300px;
 
     h4 {
-      font-size: 18px;
-      color: $font-light;
-      text-transform: capitalize;
+      position: relative;
       margin-bottom: 35px;
       font-weight: 500;
-      position: relative;
+      font-size: 16px;
+      color: $font-light;
+      text-transform: capitalize;
     }
 
     h4::before {
-      content: "";
+      box-sizing: border-box;
       position: absolute;
+      content: "";
+      height: 2px;
+      width: 50px;
       left: 0;
       bottom: -10px;
       background-color: $font-logo;
-      height: 2px;
-      box-sizing: border-box;
-      width: 50px;
     }
 
     .social {
@@ -67,12 +67,12 @@
         display: inline-block;
         height: 40px;
         width: 40px;
-        background-color: $background-social;
         margin: 0 10px 10px 0;
-        text-align: center;
         line-height: 40px;
+        text-align: center;
         border-radius: 50%;
         color: $font-light;
+        background-color: $background-social;
         transition: all 0.5s ease;
       }
 
