@@ -43,7 +43,23 @@ export const initialState = {
     },
   },
   cart: {
-    products: [],
-    total: 0,
+    products: [
+      {
+        id: '1',
+        title: 'saxophone',
+        price: 3500,
+        image: 'https://cdn.pixabay.com/photo/2021/09/01/14/20/saxophone-6591475_960_720.jpg',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eleifend quam adipiscing vitae proin sagittis nisl. Sed augue lacus viverra vitae congue eu. Et tortor at risus viverra adipiscing at in. Nibh ipsum consequat nisl vel pretium lectus.',
+      },
+      {
+        id: '2',
+        title: 'guitar',
+        price: 2800,
+        image: 'https://cdn.pixabay.com/photo/2016/10/12/23/22/electric-guitar-1736291_960_720.jpg',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eleifend quam adipiscing vitae proin sagittis nisl. Sed augue lacus viverra vitae congue eu. Et tortor at risus viverra adipiscing at in. Nibh ipsum consequat nisl vel pretium lectus.',
+      },
+    ],
+    total: 250,
+    order: [],
   },
 };
