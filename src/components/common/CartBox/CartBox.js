@@ -10,12 +10,12 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 
 import { connect } from 'react-redux';
-import { removeFromCart } from '../../../redux/cartRedux';
+import { removeFromCart, updateValue } from '../../../redux/cartRedux';
 
 import styles from './CartBox.module.scss';
 
 const Component = ({
-  id, className, title, image, price, value, removeFromCart,
+  id, className, title, image, price, value, removeFromCart, updateValue,
 }) => (
   <div className={clsx(className, styles.root)}>
     <Table className={styles.table} aria-label="cart table">
@@ -24,7 +24,7 @@ const Component = ({
           <TableCell className={styles.tableCell}>
             <img src={image} alt="alternative" className={styles.image} />
           </TableCell>
-          <TableCell className={styles.tableCell}>
+          <TableCell className={styles.title}>
             {title}
           </TableCell>
           <TableCell className={styles.tableCell}>
@@ -42,11 +42,17 @@ const Component = ({
               <DeleteIcon />
             </Button>
           </TableCell>
+          <TableCell>
+            <input
+              type="number"
+              min="1"
+              max="10"
+              value={value}
+              onChange={(e) => updateValue({ id, value: parseInt(e.target.value) })}
+            />
+
+          </TableCell>
           <TableCell align="center" className={styles.tableCell}>
-            <p>
-              {' '}
-              {value}
-            </p>
             $
             {price}
           </TableCell>
@@ -64,10 +70,12 @@ Component.propTypes = {
   value: PropTypes.number,
   id: PropTypes.string,
   removeFromCart: PropTypes.func,
+  updateValue: PropTypes.func,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   removeFromCart: (id) => dispatch(removeFromCart(id)),
+  updateValue: ({ id, value }) => dispatch(updateValue({ id, value })),
 });
 
 const Container = connect(null, mapDispatchToProps)(Component);
