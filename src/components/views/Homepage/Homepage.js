@@ -5,6 +5,8 @@ import clsx from 'clsx';
 
 import Container from '@material-ui/core/Container';
 import { Products } from '../../common/Products/Products';
+import { Slider } from '../../common/Slider/Slider';
+import { homePageSlides } from '../../../config';
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
@@ -14,7 +16,7 @@ import styles from './Homepage.module.scss';
 const Component = ({ className }) => (
   <div className={clsx(className, styles.root)}>
     <Container maxWidth="lg">
-      <h2>Homepage</h2>
+      <Slider slides={homePageSlides} />
       <Products />
     </Container>
   </div>
