@@ -1,0 +1,15 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  margin: 0 100px;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  z-index: 0;
+
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
