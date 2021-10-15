@@ -1,6 +1,6 @@
 /* selectors */
 export const getCart = ({ cart }) => cart.products;
-export const getTotal = ({ cart }) => cart.total;
+export const getTotal = ({ cart }) => cart.products.reduce((total, product) => product.price * product.value + total, 0);
 
 /* action name creator */
 const reducerName = 'cart';
@@ -55,11 +55,7 @@ export const reducer = (statePart = [], action = {}) => {
     case FETCH_SUCCESS: {
       return {
         ...statePart,
-        loading: {
-          active: false,
-          error: false,
-        },
-        data: action.payload,
+        products: action.payload ? action.payload : [],
       };
     }
     case FETCH_ERROR: {
