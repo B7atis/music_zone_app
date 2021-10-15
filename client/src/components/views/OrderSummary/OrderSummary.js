@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { OrderBox } from '../../common/OrderBox/OrderBox';
-import {
-  getCart, getTotal, sendOrder, loadCartRequest,
-} from '../../../redux/cartRedux';
+import { getCart, getTotal, sendOrder } from '../../../redux/cartRedux';
 
 import clsx from 'clsx';
 import Grid from '@material-ui/core/Grid';
@@ -39,11 +37,6 @@ class Component extends React.Component {
     };
   }
 
-  componentDidMount() {
-    const { loadCart } = this.props;
-    loadCart();
-  }
-
   handleChange = (event, name) => {
     const { order } = this.state;
 
@@ -58,11 +51,10 @@ class Component extends React.Component {
 
   render() {
     const {
-      className, total,
+      className, cart, total,
     } = this.props;
     const { handleSubmit, handleChange } = this;
     const { order } = this.state;
-    const cart = JSON.parse(localStorage.cart);
 
     return (
       <div className={clsx(className, styles.root)}>
@@ -218,7 +210,6 @@ Component.propTypes = {
   total: PropTypes.number,
   cart: PropTypes.array,
   sendOrder: PropTypes.func,
-  loadCart: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
@@ -228,7 +219,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   sendOrder: ({ order, cart, total }) => dispatch(sendOrder({ order, cart, total })),
-  loadCart: () => dispatch(loadCartRequest()),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

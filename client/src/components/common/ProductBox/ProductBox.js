@@ -64,9 +64,9 @@ Component.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   addToCart: ({
-    id, title, price, image, value,
+    _id, title, price, image, value,
   }) => dispatch(addToCart({
-    id, title, price, image, value,
+    _id, title, price, image, value,
   })),
 });
 

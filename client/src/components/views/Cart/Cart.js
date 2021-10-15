@@ -19,13 +19,11 @@ class Component extends React.Component {
   }
 
   componentDidMount() {
-    const { loadCart } = this.props;
-    loadCart();
+    this.props.loadCart();
   }
 
   componentDidUpdate() {
-    const { saveCart, cart } = this.props;
-    saveCart(cart);
+    this.props.saveCart(this.props.cart);
   }
 
   handleClick() {
@@ -52,7 +50,7 @@ class Component extends React.Component {
           <div className={styles.cartOpen}>
             <div className={styles.cartBackground}>
               <div className={styles.cartItems}>
-                {cart.length ? (cart.map((prod) => (<CartBox key={prod.id} {...prod} />)))
+                {cart.length ? (cart.map((prod) => (<CartBox key={prod._id} {...prod} />)))
                   : (
                     <div className={styles.cartEmpty}>
                       <p>Your cart is empty</p>
