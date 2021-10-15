@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
-
 import { connect } from 'react-redux';
+import { ProductBox } from '../../common/ProductBox/ProductBox';
 import { getAll, fetchProducts } from '../../../redux/productRedux';
-import { ProductPageBox } from '../../common/ProductPageBox/ProductPageBox';
 
-import styles from './ProductPage.module.scss';
+import styles from './Products.module.scss';
 
 class Component extends React.Component {
   componentDidMount() {
@@ -16,13 +15,12 @@ class Component extends React.Component {
   }
 
   render() {
-    const {
-      className, products, match,
-    } = this.props;
+    const { className, products } = this.props;
     return (
       <div className={clsx(className, styles.root)}>
-        {products.filter((product) => product._id === match.params.id).map((product) => (
-          <ProductPageBox key={product.id} {...product} />))}
+        <div className={styles.wrapper}>
+          {products.map((product) => (<ProductBox key={product.id} {...product} />))}
+        </div>
       </div>
     );
   }
@@ -30,21 +28,8 @@ class Component extends React.Component {
 
 Component.propTypes = {
   className: PropTypes.string,
-  addToCart: PropTypes.func,
   products: PropTypes.array,
-  product: PropTypes.shape({
-    image: PropTypes.string,
-    title: PropTypes.string,
-    price: PropTypes.number,
-    content: PropTypes.string,
-    _id: PropTypes.string,
-  }),
   fetchProducts: PropTypes.func,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string,
-    }),
-  }),
 };
 
 const mapStateToProps = (state) => ({
@@ -58,6 +43,6 @@ const mapDispatchToProps = (dispatch) => ({
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Container as ProductPage,
-  Component as ProductPageComponent,
+  Container as Products,
+  Component as ProductsComponent,
 };

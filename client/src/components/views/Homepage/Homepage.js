@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import Container from '@material-ui/core/Container';
-import { Products } from '../../common/Products/Products';
+import { Products } from '../Products/Products';
 import { Slider } from '../../common/Slider/Slider';
 import { homePageSlides } from '../../../config';
 

@@ -35,7 +35,7 @@ export const reducer = (statePart = [], action = {}) => {
     case REMOVE_FROM_CART: {
       return {
         ...statePart,
-        products: statePart.products.filter((item) => item.id !== action.payload),
+        products: statePart.products.filter((item) => item._id !== action.payload),
       };
     }
     case UPDATE_VALUE: {

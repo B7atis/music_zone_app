@@ -1,66 +1,40 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  .component {
-    padding: $base-size;
-    margin: 60px 300px;
+  margin: 10px;
 
-    .photoWrapper {
-      position: relative;
-      height: 50vh;
+  .card {
+    padding: 10px;
+    text-align: center;
 
-      img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-    }
-
-    .actions {
-      display: flex;
-      padding: $base-size;
-      justify-content: space-around;
-      align-items: center;
-    }
-
-    .favorite:hover {
-      color: $fevorite;
-    }
-
-    .share:hover {
-      color: $share;
-    }
-
-    .card {
-      height: 50vh;
-      padding: 10px;
-      color: $font-dark;
+    .image {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
     }
 
     .content {
       .title {
-        margin-top: 10px;
+        text-transform: uppercase;
         font-weight: bold;
         font-size: 20px;
-        text-transform: uppercase;
+        margin-top: 10px;
       }
 
       .text {
+        font-size: 20px;
         margin-top: 10px;
-        margin-bottom: 15px;
-        font-size: 15px;
       }
 
       .price {
-        margin-top: 20px;
-        font-weight: bold;
         font-size: 20px;
+        font-weight: bold;
+        margin-top: 10px;
       }
     }
 
-    .button {
-      background-color: $font-logo;
-      color: $font-light;
+    .buttonWrap {
+      justify-content: center;
     }
   }
 }
