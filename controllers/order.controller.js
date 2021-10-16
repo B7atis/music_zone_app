@@ -1,4 +1,5 @@
 const Order = require('../models/order.model');
+
 exports.postOrder = async (req, res) => {
   console.log('req.body', req.body);
 
@@ -14,5 +15,17 @@ exports.postOrder = async (req, res) => {
   catch (err) {
     res.status(500).json(err);
     console.log('err', err)
+  }
+};
+
+exports.getOrders = async (req, res) => {
+
+  try {
+    const order = await Order.find();
+
+    res.json(order);
+  }
+  catch (err) {
+    res.status(500).json(err);
   }
 };
