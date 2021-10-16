@@ -129,6 +129,7 @@ export const reducer = (statePart = [], action = {}) => {
     case SEND_ORDER: {
       return {
         ...statePart,
+        products: [],
         order: action.payload,
       };
     }
