@@ -68,10 +68,20 @@ export const reducer = (statePart = [], action = {}) => {
       };
     }
     case ADD_TO_CART: {
+      const { products } = statePart;
+      if (products.length) {
+        let isProductInCart = false;
+        for (const prod of products) {
+          if (prod._id === action.payload._id) isProductInCart = true;
+        }
+        return {
+          ...statePart,
+          products: isProductInCart ? [...products] : [...products, { ...action.payload }],
+        };
+      }
       return {
         ...statePart,
-        products: [...statePart.products, { ...action.payload }],
-        total: statePart.total + (action.payload.price * action.payload.value),
+        products: [{ ...action.payload }],
       };
     }
     case REMOVE_FROM_CART: {
