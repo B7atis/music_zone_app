@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { OrderBox } from '../../common/OrderBox/OrderBox';
-import { getCart, getTotal, sendOrder } from '../../../redux/cartRedux';
+import { getCart, getTotal, sendOrderRequest } from '../../../redux/cartRedux';
 
 import clsx from 'clsx';
 import Grid from '@material-ui/core/Grid';
@@ -218,7 +218,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  sendOrder: ({ order, cart, total }) => dispatch(sendOrder({ order, cart, total })),
+  sendOrder: ({ order, cart, total }) => dispatch(sendOrderRequest({ order, cart, total })),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

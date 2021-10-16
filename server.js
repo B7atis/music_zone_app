@@ -6,6 +6,7 @@ const helmet = require('helmet');
 
 /* ROUTES */
 const productsRoutes = require('./routes/products.routes');
+const orderRoutes = require('./routes/order.routes');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.static(path.join(__dirname + '/client/build')));
 
 /* API ENDPOINTS */
 app.use('/api', productsRoutes);
+app.use('/api', orderRoutes);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
