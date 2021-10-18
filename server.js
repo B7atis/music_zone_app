@@ -32,7 +32,13 @@ app.use((req, res) => {
 });
 
 /* MONGOOSE */
-mongoose.connect('mongodb://localhost:27017/MusicZoneDB', { useNewUrlParser: true, useUnifiedTopology: true });
+const NODE_ENV = process.env.NODE_ENV;
+let dbURI = '';
+
+if (NODE_ENV === 'production') dbURI = 'mongodb+srv://${process.env.DB_LOGIN}:${process.env.DB_PASSWORD}@cluster0.le7he.mongodb.net/MusicZoneDB?retryWrites=true&w=majority';
+else dbURI = 'mongodb://localhost:27017/MusicZoneDB';
+
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 
 db.once('open', () => {
