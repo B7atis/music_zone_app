@@ -6,9 +6,10 @@
   "author": "Bartosz Jędrzejewski-Emche <jedrek2603@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "npm-run-all start:*",
-    "start:server": "nodemon server.js",
-    "start:client": "cd client && npm run start",
+    "start": "set NODE_ENV='production' && node server.js",
+    "start-dev": "npm-run-all -l -p start:*",
+    "start:server": "set NODE_ENV='dev' && ./node_modules/.bin/nodemon server.js",
+    "start:client": "cd client && npm start",
     "build": "cd client && npm install && npm run build"
   },
   "dependencies": {
