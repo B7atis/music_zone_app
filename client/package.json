@@ -1,6 +1,9 @@
 {
   "name": "music_zone_app",
   "version": "0.1.0",
+  "engines": {
+    "node": "14.x"
+  },
   "private": true,
   "scripts": {
     "start": "run-p start:* ",
@@ -68,8 +71,5 @@
     "husky": "^7.0.2",
     "lint-staged": "^11.2.0",
     "redux-devtools-extension": "^2.13.9"
-  },
-  "engines": {
-    "node": "14.x"
   }
 }
