@@ -23,6 +23,7 @@
     "helmet": "3.22.0",
     "mongoose": "5.9.10",
     "nodemon": "2.0.3",
-    "npm-run-all": "4.1.5"
+    "npm-run-all": "4.1.5",
+    "redux-devtools-extension": "^2.13.9"
   }
 }
