@@ -1,3 +1,9 @@
+Final project in the Kodilla course.
+
+## Link for Heroku
+
+> [Music Zone App](https://afternoon-waters-48933.herokuapp.com/).
+
 ## Available Scripts
 
 In the project directory, you can run:

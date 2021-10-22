@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
 const helmet = require('helmet');
+require('dotenv').config();
 
 /* ROUTES */
 const productsRoutes = require('./routes/products.routes');
@@ -32,11 +33,7 @@ app.use((req, res) => {
 });
 
 /* MONGOOSE */
-const NODE_ENV = process.env.NODE_ENV;
-let dbURI = '';
-
-if (NODE_ENV === 'production') dbURI = 'mongodb+srv://${process.env.DB_LOGIN}:${process.env.DB_PASSWORD}@cluster0.le7he.mongodb.net/MusicZoneDB?retryWrites=true&w=majority';
-else dbURI = 'mongodb://localhost:27017/MusicZoneDB';
+const dbURI = `mongodb+srv://${process.env.DB_LOGIN}:${process.env.DB_PASSWORD}@cluster0.le7he.mongodb.net/MusicZoneDB?retryWrites=true&w=majority`;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
